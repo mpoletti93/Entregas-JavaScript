@@ -15,4 +15,5 @@ if (sueldoNeto <= 300000){
 }
 console.log(resultado)
 
-
+const contenerdor = document.getElementById("contenedor")
+contenerdor.innerHTML = resultado
