@@ -1,12 +1,13 @@
-let  sueldoNeto
+let sueldoNeto = 0
 let alicuotaSinG = 0.89
 let alicuotaConG = 0.7
+let resultado = 0 
 
 function calcularSing (sueldoNeto, alicuotaSinG){
-    sueldoNeto*alicuotaSinG
+    resultado = sueldoNeto*alicuotaSinG
 }
 function calcularConG (sueldoNeto, alicuotaConG){
-    sueldoNeto*alicuotaConG
+    resultado = sueldoNeto*alicuotaConG
 }
 
 do{
@@ -14,14 +15,6 @@ do{
 } while (
     isNaN(sueldoNeto)
 )
-
-//no se porque aca me dice undifined en el resultado 
-function calcularSing (sueldoNeto, alicuotaSinG){
-    sueldoNeto*alicuotaSinG
-}
-function calcularConG (sueldoNeto, alicuotaConG){
-    sueldoNeto*alicuotaConG
-}
 
 
 // cuando llamo a la funcion me dice que no esta definido 
