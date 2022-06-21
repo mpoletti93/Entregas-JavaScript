@@ -4,10 +4,12 @@ let alicuotaConG = 0.7
 let resultado = 0 
 
 function calcularSing (sueldoNeto, alicuotaSinG){
-    resultado = sueldoNeto*alicuotaSinG
+    resultado = sueldoNeto*alicuotaSinG;
+    return resultado 
 }
 function calcularConG (sueldoNeto, alicuotaConG){
-    resultado = sueldoNeto*alicuotaConG
+    resultado = sueldoNeto*alicuotaConG; 
+    return  resultado 
 }
 
 do{
