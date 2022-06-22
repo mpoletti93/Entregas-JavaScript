@@ -18,8 +18,6 @@ do{
     isNaN(sueldoNeto)
 )
 
-
-// cuando llamo a la funcion me dice que no esta definido 
 if (sueldoNeto <= 300000){
     resultado = calcularSing (sueldoNeto, alicuotaSinG);
 } else {
