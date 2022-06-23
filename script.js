@@ -13,7 +13,7 @@ function calcularConG (sueldoNeto, alicuotaConG){
 }
 
 do{
-    sueldoNeto= parseFloat(prompt("Ingresa Tu Sueldo Neto"))
+    sueldoNeto= parseFloat(prompt("Ingresa Tu Sueldo Bruto"))
 } while (
     isNaN(sueldoNeto)
 )
@@ -28,3 +28,6 @@ console.log(resultado)
 
 const contenerdor = document.getElementById("contenedor")
 contenerdor.innerHTML = resultado
+
+//AGREGADO DE ARRAY
+const nombres = ["francisco", "alejandro", "cristian", "emanuel", "mariano"]
