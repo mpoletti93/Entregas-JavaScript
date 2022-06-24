@@ -102,5 +102,4 @@ console.log(comision.includes("alejandro")) //solo devuelve v o f si el valor es
 
 console.log(comision.reverse)
 
-//COMPLETAR CON EL FOR
-
+//COMPLETAR CON EL
