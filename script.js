@@ -1,51 +1,40 @@
-let sueldoNeto = 0
-let alicuotaSinG = 0.89
-let alicuotaConG = 0.7
-let resultado = 0 
-
-function calcularSing (sueldoNeto, alicuotaSinG){
-    resultado = sueldoNeto*alicuotaSinG;
-    return resultado 
-}
-function calcularConG (sueldoNeto, alicuotaConG){
-    resultado = sueldoNeto*alicuotaConG; 
-    return  resultado 
+class Persona {
+    constructor(id, nombre, apellido, edad, sueldo) {
+        this.id = id
+        this.nombre = nombre
+        this.apellido = apellido
+        this.edad = edad
+        this.sueldo = sueldo
+    }
 }
 
-do{
-    sueldoNeto= parseFloat(prompt("Ingresa Tu Sueldo Bruto"))
-} while (
-    isNaN(sueldoNeto)
-)
+const persona1 = new Persona(1, "Francisco", "Pugh", 38, 12000)
+const persona2 = new Persona(2, "Dario", "Britos", 20, 22000)
+const persona3 = new Persona(3, "Alejandro", "Santos", 19, 17000)
+const persona4 = new Persona(4, "Gaston", "Sosa", 21, 13000)
+const persona5 = new Persona(5, "Maria", "Parodi", 19, 24000)
 
-if (sueldoNeto <= 300000){
-    resultado = calcularSing (sueldoNeto, alicuotaSinG);
-} else {
-    resultado = calcularConG (sueldoNeto, alicuotaConG);
-}
+const personas = [persona1, persona2, persona3, persona4, persona5]
 
-console.log(resultado)
+const divPersonas = document.getElementById('divPersonas')
 
-const contenerdor = document.getElementById("contenedor")
-contenerdor.innerHTML = resultado
+personas.forEach(persona => {
+    divPersonas.innerHTML += `
+        <div class="stylePersonas" id="persona${persona.id}">
+            <p>Nombre: ${persona.nombre} </p>
+            <p>Apellido: ${persona.apellido} </p>
+            <p>Edad: ${persona.edad} </p>
+            <p>Sueldo: ${persona.sueldo} </p>
+        </div>
+    `
+})
 
-//AGREGADO DE ARRAY 
-const nombres = ["francisco", "alejandro", "cristian", "emanuel", ]
+const parrafo = document.createElement("p")
+parrafo.innerText = "Hola, como estan?"
+parrafo.id = "parrafo1"
 
-const nombres2 = ["juan","fede","nico"]
+document.body.append(parrafo)
 
-nombres.push("agustin")
-nombres2.push("andrea")
+document.getElementById('persona1').remove()
 
-const nombresTotales = nombres.concat(nombres2)
-
-let nombreEliminar = prompt("ingrese el nombre a eliminar").toLocaleLowerCase()
-let indice = nombresTotales.indexOf(nombreEliminar)
-
-if(indice >= 0){
-    nombresTotales.splice(indice,1)
-} else {
-    alert("Nombre no Encontrado")
-}
-
-console.log(nombresTotales)
+divPersonas.removeChild(document.getElementById('persona2'))
