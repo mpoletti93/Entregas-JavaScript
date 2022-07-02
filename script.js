@@ -1,3 +1,49 @@
+const products = [
+    {id:1, name:"REMERA", price: 100, stock:20},
+    {id:2, name:"PANTALON", price: 300, stock:10},
+    {id:3, name:"BUZO", price: 150, stock:15},
+]
+
+const cart = [];
+//defino la estructura del carrito
+class ProductCart{
+    constructor(obj, qty){
+        this.id = obj.id,
+        this.name = obj.name,
+        this.price = obj.price,
+        this.quantity = qty
+    }
+}
+
+//función para agregar productos al carrito
+function addProductToCart(id, quantity = 1) {
+const product = products.find(p => p.id == id);
+    if (!product) {
+        return "El producto no existe";
+    }
+    if (product.stock <= quantity) {
+        return "No hay suficiente stock";
+    }
+const productCart = cart.find(p => p.id == id);
+    if (productCart) {
+        productCart.quantity += quantity;
+    }
+    else {
+        cart.push((new ProductCart(product, quantity)));
+    }
+
+    product.stock -= quantity;
+    return cart;
+}
+
+do{
+products.id = parseFloat(prompt("Ingresa el codigo de producto que quieres agregar: 1 - REMERA; 2- PANTALON; 3- BUZO")) 
+} while  
+    (isNaN(products.id))
+
+console.log(addProductToCart(products.id,1))
+
+/*
 let sueldoNeto = 0
 let alicuotaSinG = 0.89
 let alicuotaConG = 0.7
@@ -49,3 +95,4 @@ if(indice >= 0){
 }
 
 console.log(nombresTotales)
+*/
