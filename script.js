@@ -104,4 +104,3 @@ if(indice >= 0){
 
 console.log(nombresTotales)
 */
->>>>>>> PrimeEntregaProyecto
