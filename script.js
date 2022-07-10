@@ -1,3 +1,4 @@
+/*
 const products = [
     {id:1, name:"REMERA", price: 100, stock:20},
     {id:2, name:"PANTALON", price: 300, stock:10},
@@ -42,7 +43,7 @@ products.id = parseFloat(prompt("Ingresa el codigo de producto que quieres agreg
     (isNaN(products.id))
 
 console.log(addProductToCart(products.id,1))
-
+*/
 /*
 let sueldoNeto = 0
 let alicuotaSinG = 0.89
@@ -92,3 +93,25 @@ if(indice >= 0){
 }
 console.log(nombresTotales)
 */
+
+class User {
+    constructor(id, email, password) {
+        this.id = id
+        this.email = email
+        this.password = password
+    }
+}
+const formulario = document.getElementById('idForm')
+const usuarios = []
+let id = 1;
+
+formulario.addEventListener('submit', (event) => {
+    event.preventDefault()
+    let email = document.getElementById('exampleInputEmail1').value
+    let password = document.getElementById('exampleInputPassword1').value
+    const user = new User(id, email, password)
+    usuarios.push(user)
+    console.log(usuarios)
+    formulario.reset()
+    id++
+})
