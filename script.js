@@ -93,7 +93,7 @@ if(indice >= 0){
 }
 console.log(nombresTotales)
 */
-
+/*
 class User {
     constructor(id, email, password) {
         this.id = id
@@ -114,4 +114,78 @@ formulario.addEventListener('submit', (event) => {
     console.log(usuarios)
     formulario.reset()
     id++
+})
+*/
+
+class Contacto { 
+//Clase de contactos para deifnir un constructor de cada contacto
+    constructor(nombreContacto, numeroTelefono) {
+        this.nombre = nombreContacto
+        this.numero = numeroTelefono
+    }
+}
+
+let contactos = [] //array de contactos que voy a ir agregando o quitando 
+
+//guardo en el local storage para que no se eliminen cuando cierro el navegador
+if(localStorage.getItem('storageContactos')) { //consulto en el local storage si ya guardo contactos anteriormente
+    contactos = JSON.parse(localStorage.getItem('storageContactos'))
+//si existen contactos, muestro las tareas almacenadas en el storage, como es un JSON lo parseo
+} else {
+    localStorage.setItem('storageContactos', JSON.stringify(contactos))
+//si no contiene contactos, guardo en mi storage los contactos del array, como es objeto lo convierto a JSON
+}
+
+const form = document.getElementById('idForm') 
+// consulto el formulario
+const botonAgenda = document.getElementById('idBotonAgenda') 
+// consulto por el boton de agregar a la agenda
+const divAgenda = document.getElementById('divAgenda') 
+// consulto el div de agenda 
+
+//evento escuchador cuando se crea un contacto
+form.addEventListener('submit', (e) => { 
+    e.preventDefault() //prevengo el comportamiento por defecto del formulario
+    console.log(e)
+    let datForm = new FormData(e.target) 
+//genero un objeto de tipo formData 
+    const contacto = new Contacto(datForm.get('nombre'),datForm.get('numero')) 
+//creo obejeto contacto
+    contactos.push(contacto) 
+//pusheo el contacto al array
+    localStorage.setItem('storageContactos', JSON.stringify(contactos))
+//agrego el contacto al local storage pisandolo 
+    form.reset() 
+//reseteo el formulario 
+})
+
+botonAgenda.addEventListener('click', () => {
+//evento para mostar la agenda cada vez que doy clik
+    let contactosStorage = JSON.parse(localStorage.getItem('storageContactos'))
+    divAgenda.innerHTML = ""
+//antes del foreach limpio el html, para que no repita las tareas cada vez que toca el boton
+    contactosStorage.forEach((contacto,indice) => { 
+//agrego una nueva card por cada contacto agregado
+        divAgenda.innerHTML += `
+            <div class="card border-primary mb-3" id="contacto${indice}" style="max-width: 20rem;margin:4px;">
+            <div class="card-header">${contacto.nombre}</div>
+                <div class="card-body">
+                <h4 class="card-title">${contacto.numero}</h4>
+                <button class="btn btn-danger">Eliminar Contacto</button>
+                </div>
+            </div>
+        `
+//le creo un indice a cada uno de los contactos para poder listarlos y eliminarlos posteriormente
+    })
+    
+    contactosStorage.forEach((contacto, indice) => {
+        document.getElementById(`contacto${indice}`).lastElementChild.lastElementChild.addEventListener('click', () => {
+//voy a buscar el boton buscando el ultimo elemento hijo de cada div
+            document.getElementById(`contacto${indice}`).remove()
+            contactos.splice(indice, 1)
+            localStorage.setItem('storageContactos', JSON.stringify(contactos))
+            console.log(`${contacto.nombre} eliminado`)
+            console.log(contactos)
+        })
+    })
 })
