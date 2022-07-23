@@ -157,7 +157,23 @@ form.addEventListener('submit', (e) => {
 //agrego el contacto al local storage pisandolo 
     form.reset() 
 //reseteo el formulario 
+Toastify({ //muestro un pequeña alerta cuando se genera un contacto
+    text: "Contacto Agregado",
+    duration: 3000,
+    //destination: "https://github.com/apvarun/toastify-js",
+    //newWindow: true,
+    close: true,
+    gravity: "bottom", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+    },
+    onClick: function(){} // Callback after click
+}).showToast();
 })
+
+
 
 botonAgenda.addEventListener('click', () => {
 //evento para mostar la agenda cada vez que doy clik
@@ -184,6 +200,20 @@ botonAgenda.addEventListener('click', () => {
             document.getElementById(`contacto${indice}`).remove()
             contactos.splice(indice, 1)
             localStorage.setItem('storageContactos', JSON.stringify(contactos))
+            Toastify({ //muestro un pequeña alerta cuando se genera un contacto
+                text: "Contacto Eliminado",
+                duration: 3000,
+                //destination: "https://github.com/apvarun/toastify-js",
+                //newWindow: true,
+                close: true,
+                gravity: "bottom", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                background: "linear-gradient(to right, #EC4747, #B725A7)",
+                },
+                onClick: function(){} // Callback after click
+            }).showToast();
             console.log(`${contacto.nombre} eliminado`)
             console.log(contactos)
         })
