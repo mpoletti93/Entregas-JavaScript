@@ -218,3 +218,22 @@ botonAgenda.addEventListener('click', () => {
         })
     })
 })
+
+
+//consulta de dolar de la pag criptoya
+const divDolar = document.getElementById("divDolar")
+
+setInterval(() =>{ //seteo el intervalo para que actualice
+fetch("https://criptoya.com/api/dolar")
+.then(response => response.json())//transformo la promesa en un json
+.then(({oficial, solidario, blue,ccb, mep, ccl}) => {
+    divDolar.innerHTML = ` 
+    <p> Oficial: $${oficial}</p>
+    <p> Solidario: $${solidario}</p>
+    <p> Blue: $${blue}</p>
+    <p> CCB: $${ccb}</p>
+    <p> MEP: $${mep}</p>
+    <p> CCL: $${ccl}</p>
+    ` 
+})
+},3000)
