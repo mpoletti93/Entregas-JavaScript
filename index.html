@@ -4,29 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Segunda Entrega</title>
+    <title>Entrega Final JS</title>
     <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
-    <div class="container">
-        <form id="idForm">
-            <h1>AGENDA ONLINE</h1><br>
-            <div id="divDolar" class="mb-3"> </div>
-            <div class="mb-3">
-            <label for="idNombre" class="form-label">Nombre del Contacto</label>
-            <input type="text" class="form-control" id="idNombre" name="nombre">
-            </div>
-            <div class="mb-3">
-            <label for="idTel" class="form-label">Número de Telefono</label>
-            <input type="text" class="form-control" id="idTel" name="numero">
-            </div>
+    <h1>Página de Usos Multiples (PUM)</h1>
+    <div>
+        <p> Guarda tus contactos en la agenda local y calcula cuantos USD a tipo de cambio que puedas acceder vas a poder comprar</p>
+    </div>
+<!--
+    <div id="divClima"></div>
+-->
+<div class="container">
+            <form id="idForm">
+                <h2>AGENDA ONLINE</h2><br>
+
+                    <div class="mb-3">
+                        <label for="idNombre" class="form-label">Nombre del Contacto</label>
+                        <input type="text" class="form-control" id="idNombre" name="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="idTel" class="form-label">Número de Telefono</label>
+                    <input type="text" class="form-control" id="idTel" name="numero">
+                </div>
             <button type="submit" class="btn btn-dark">Crear Contacto</button><br><br>
+            </form>
+        </div>
+            <button id="idBotonAgenda" class="btn btn-dark">Mostrar Agenda</button><br><br>
+                <div id="divAgenda" class="container row"></div>
+    
+<div class="container">
+    <div class="row">
+    <div class="col">
+<!-- pequeña calculadora para realizar calculos simples -->
+        <h2>CALCULADORA</h2>
+        <form name="calc" class="container" id="calculadora">
+            <input type="number" class="inputcalc" name="operando1" value="0" size="15">
+            <br>
+            <input type="number" class="inputcalc" name="operando2" value="0" size="15">
+            <br>
+            <input type="Button" class="btn btn-dark" name="" value=" + " onclick="calcular('+')">
+            <input type="Button"class="btn btn-dark" name="" value=" - " onclick="calcular('-')">
+            <input type="Button"class="btn btn-dark" name="" value=" X " onclick="calcular('*')">
+            <input type="Button"class="btn btn-dark" name="" value=" / " onclick="calcular('/')">
+            <br>
+            <input type="Text" name="resultado" value="0" size="15">
         </form>
     </div>
-    <button id="idBotonAgenda" class="btn btn-dark">Mostrar Agenda</button><br><br>
-    <div id="divAgenda" class="container row"></div>
-    
+    <div class="col">
+<!-- COTIZACIÓN DOLAR -->
+        <div id="divDolar" class="mb-3"> 
+            <h2>COTIZACIÓN DOLAR</h2>
+        </div>
+    </div>
+    </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="script.js"></script>
 </body>
